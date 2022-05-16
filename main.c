@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/16 08:59:11 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 10:03:47 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstprint(t_list *begin_list)
 {
 	while (begin_list)
 	{
-		ft_printf("%d\n", begin_list->content);
+		ft_printf("%d  %d\n", begin_list->content, begin_list->index);
 		begin_list = begin_list->next;
 	}
 }
@@ -35,12 +35,13 @@ int main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (1);
 	}
+	if (!add_index(&master_stack.bg_sa))
+		return (1);
 	ft_printf("STACK A:\n");
-	add_index(&master_stack.bg_sa);
-	//ft_lstprint(master_stack.bg_sa);
-	/*ft_printf("STACK B:\n");	
+	ft_lstprint(master_stack.bg_sa);
+	ft_printf("STACK B:\n");	
 	ft_lstprint(master_stack.bg_sb);
-	push_b(&master_stack.bg_sa, &master_stack.bg_sb);
+	/*push_b(&master_stack.bg_sa, &master_stack.bg_sb);
 	push_b(&master_stack.bg_sa, &master_stack.bg_sb);
 	push_b(&master_stack.bg_sa, &master_stack.bg_sb);
 	push_b(&master_stack.bg_sa, &master_stack.bg_sb);

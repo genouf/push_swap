@@ -6,23 +6,11 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 04:45:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/16 09:40:02 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 10:05:45 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_tab(int *tab, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		printf(" %d", tab[i]);
-		i++;
-	}
-}
 
 void	sort_tab(int *tab_transform, int size)
 {
@@ -102,5 +90,6 @@ int	add_index(t_list **begin_list)
 		set_in_list(begin_list, tab_transform[i], i);
 		i++;
 	}
+	free(tab_transform);
 	return (1);
 }
