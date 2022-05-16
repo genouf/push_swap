@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:02:47 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/13 17:17:51 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 06:59:50 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 	if (new == NULL)
 		return (NULL);
 	new->content = content;
+	new->index = 0;
 	new->next = 0;
 	return (new);
 }

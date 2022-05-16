@@ -6,11 +6,11 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/16 02:59:00 by genouf           ###   ########.fr        #
+#    Updated: 2022/05/16 09:39:51 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c arg_check.c instructions.c instructions_bis.c
+SRCS = main.c arg_check.c instructions.c instructions_bis.c remote.c
 OBJS = ${SRCS:.c=.o}
 
 NAME = push_swap
@@ -20,19 +20,20 @@ RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-MAKE = cd libft && make
+MAKE = make -C libft
+LIBA = libft/libft.a 
 LIB = -Llibft -lft
 
 all: ${NAME}
 
-make: 
+${LIBA}:  
 	${MAKE}
 
-${NAME}: ${OBJS} make
+${NAME}: ${OBJS} ${LIBA}
 	${CC} -o $@  ${OBJS} ${CLAGS} ${LIB}
 	
 %.o: %.c
-		${CC} ${CFLAGS} -c ${SRCS}
+		${CC} ${CFLAGS} -c $^
 
 clean:
 		${RM} ${OBJS} ${OBJS_BONUS}
