@@ -6,11 +6,11 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/14 21:54:47 by genouf           ###   ########.fr        #
+#    Updated: 2022/05/16 02:59:00 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c arg_check.c instructions.c
+SRCS = main.c arg_check.c instructions.c instructions_bis.c
 OBJS = ${SRCS:.c=.o}
 
 NAME = push_swap
