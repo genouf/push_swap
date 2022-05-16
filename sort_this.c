@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 19:38:09 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/16 20:20:45 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 21:54:22 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	sort_min(m_list *master_stack)
 				pushed = 1;
 			}
 			else if (master_stack->bg_sa->next->content == mini)
-				swap(&(master_stack->bg_sa));
+				swap(&(master_stack->bg_sa), 'a');
 			else if (ft_lstlast(master_stack->bg_sa)->content == mini)
-				reverse_rotate(&(master_stack->bg_sa));
+				reverse_rotate(&(master_stack->bg_sa), 'a');
 			else
-				rotate(&(master_stack->bg_sa));
+				rotate(&(master_stack->bg_sa), 'a');
 		}
 	}
 	while (master_stack->bg_sb != NULL)

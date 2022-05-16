@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:33:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/14 12:11:54 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 21:57:34 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst)
 {
 	t_list	*current;
 
-	if (!lst) 
+	if (!lst)
 		return ;
 	current = *lst;
 	while (*lst)

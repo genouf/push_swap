@@ -6,13 +6,13 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:57:50 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/13 16:22:59 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 21:57:06 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		i;
 	int		neg;

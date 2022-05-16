@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 02:58:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/16 02:58:43 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 21:45:19 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	push_a(t_list **begin_list_a, t_list **begin_list_b)
 	*begin_list_a = *begin_list_b;
 	(*begin_list_a)->next = tmp2;
 	*begin_list_b = tmp;
+	write(1, "pa\n", 3);
 }
 
 void	push_b(t_list **begin_list_a, t_list **begin_list_b)
@@ -38,4 +39,5 @@ void	push_b(t_list **begin_list_a, t_list **begin_list_b)
 	*begin_list_b = *begin_list_a;
 	(*begin_list_b)->next = tmp2;
 	*begin_list_a = tmp;
+	write(1, "pb\n", 3);
 }

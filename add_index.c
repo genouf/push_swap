@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 04:45:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/16 10:05:45 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/16 21:30:44 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sort_tab(int *tab_transform, int size)
 	int	i;
 	int	j;
 	int	tmp;
-	
+
 	i = 0;
 	while (i < size - 1)
 	{
@@ -36,7 +36,7 @@ void	sort_tab(int *tab_transform, int size)
 	}
 }
 
-void init_tab(t_list **begin_list, int **tab_transform, int size)
+void	init_tab(t_list **begin_list, int **tab_transform, int size)
 {
 	t_list	*tmp;
 	int		i;
