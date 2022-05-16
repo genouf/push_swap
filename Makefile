@@ -6,11 +6,11 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/16 09:39:51 by genouf           ###   ########.fr        #
+#    Updated: 2022/05/16 20:20:13 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c arg_check.c instructions.c instructions_bis.c remote.c
+SRCS = main.c arg_check.c instructions.c instructions_bis.c remote.c sort_this.c
 OBJS = ${SRCS:.c=.o}
 
 NAME = push_swap
@@ -45,4 +45,4 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY: clean fclean make
+.PHONY: clean fclean ${LIBA}
