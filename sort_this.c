@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 19:38:09 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/16 21:54:22 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/17 15:44:16 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,15 @@ void	sort_min(m_list *master_stack)
 	{
 		pushed = 0;
 		mini = find_mini(master_stack->bg_sa);
-		while (!pushed)
+		while (!pushed && !list_sorted(master_stack->bg_sa))
 		{
 			if (master_stack->bg_sa->content == mini)
 			{
 				push_b(&(master_stack->bg_sa), &(master_stack->bg_sb));
 				pushed = 1;
 			}
+			if (master_stack->bg_sa->index == ft_lstsize(master_stack->bg_sa) - 1)
+				rotate(&(master_stack->bg_sa), 'a');
 			else if (master_stack->bg_sa->next->content == mini)
 				swap(&(master_stack->bg_sa), 'a');
 			else if (ft_lstlast(master_stack->bg_sa)->content == mini)
@@ -69,3 +71,33 @@ void	sort_min(m_list *master_stack)
 	while (master_stack->bg_sb != NULL)
 		push_a(&(master_stack->bg_sa), &(master_stack->bg_sb));
 }
+
+/*void	sort_min(m_list *master_stack)
+{
+	int	mini;
+	int	pushed;
+
+	while (!list_sorted(master_stack->bg_sa))
+	{
+		pushed = 0;
+		mini = find_mini(master_stack->bg_sa);
+		while (!pushed && !list_sorted(master_stack->bg_sa))
+		{
+			if (master_stack->bg_sa->content == mini)
+			{
+				push_b(&(master_stack->bg_sa), &(master_stack->bg_sb));
+				pushed = 1;
+			}
+			else if (master_stack->bg_sa->index == ft_lstsize(master_stack->bg_sa) - 1)
+				rotate(&(master_stack->bg_sa), 'a');
+			else if (master_stack->bg_sa->next->content == mini)
+				swap(&(master_stack->bg_sa), 'a');
+			else if (ft_lstlast(master_stack->bg_sa)->content == mini)
+				reverse_rotate(&(master_stack->bg_sa), 'a');
+			else
+				rotate(&(master_stack->bg_sa), 'a');
+		}
+	}
+	while (master_stack->bg_sb != NULL)
+		push_a(&(master_stack->bg_sa), &(master_stack->bg_sb));
+}*/
