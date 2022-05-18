@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 19:38:09 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/17 15:44:16 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:19:41 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ int	list_sorted(t_list *begin_list)
 	return (1);
 }
 
-void	sort_min(m_list *master_stack)
+void	sort_min(t_m_list *master_stack)
 {
 	int	mini;
 	int	pushed;
 
+	printf("la");
 	while (!list_sorted(master_stack->bg_sa))
 	{
 		pushed = 0;

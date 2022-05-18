@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:16:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/15 10:33:21 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/18 15:55:52 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ int	checker_entry(char *str, t_list **begin_list, int *content)
 	return (1);
 }
 
-int	checker_argv(int argc, char **argv, t_list **begin_list)
+int	checker_argv(int argc, char **argv, t_list **begin_list, int i)
 {
-	int		i;
 	int		content;
+	int		test;
 
+	test = i;
 	content = 0;
-	i = 1;
-	while (i < argc)
+	while ((test && i < argc) || (test == 0 && argv[i]))
 	{
 		if (!checker_entry(argv[i], begin_list, &content))
 		{

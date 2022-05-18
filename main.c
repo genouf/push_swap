@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/17 18:12:53 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:19:29 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,45 +22,34 @@ void	ft_lstprint(t_list *begin_list)
 	}
 }
 
-char	**transform_string(char *str)
+char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack)
 {
-	char	**result;
-
-	result = ft_split(str, ' ');
-	return (result);
-}
-
-/*int main(int argc, char **argv)
-{
-	int i;
-	i = 1;
-	while (i < argc)
+	master_stack->bg_sa = NULL;
+	master_stack->bg_sb = NULL;
+	if (argc == 1)
+		exit(EXIT_FAILURE);
+	else if (argc == 2)
 	{
-		printf("%s", argv[i]);
-		printf("/");
-		i++;
+		*i = 0;
+		argv = ft_split(argv[1], ' ');
 	}
-	return(0);
-}*/
+	else
+		*i = 1;
+	return (argv);
+}
 
 int main(int argc, char **argv)
 {
-	m_list	master_stack;
-
+	t_m_list	master_stack;
+	int		i;
 	
-	master_stack.bg_sa = NULL;
-	master_stack.bg_sb = NULL;
-	if (argc == 1)
-		return (1);
-	else if (argc == 2)
-		argv = ft_split
-	if (!checker_argv(argc, argv, &(master_stack.bg_sa)))
+	argv = begin_init(argv, &i, argc, &master_stack);
+	if (!checker_argv(argc, argv, &(master_stack.bg_sa), i))
 	{
 		write(2, "Error\n", 6);
-		return (1);
+		exit(EXIT_FAILURE);
 	}
-	if (!add_index(&master_stack.bg_sa))
-		return (1);
+	add_index(&master_stack.bg_sa);
 	//ft_printf("STACK A:\n");
 	//ft_lstprint(master_stack.bg_sa);
 	//ft_printf("STACK B:\n");	
@@ -69,6 +58,5 @@ int main(int argc, char **argv)
 	//ft_printf("\n ------ \n");
 	//ft_printf("STACK A:\n");
 	//ft_lstprint(master_stack.bg_sa);
-
 	return (0);
 }

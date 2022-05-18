@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remote.c                                           :+:      :+:    :+:   */
+/*   add_index.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 04:45:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/16 21:30:44 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:00:36 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	set_in_list(t_list **begin_list, int content, int index)
 	}	
 }
 
-int	add_index(t_list **begin_list)
+void add_index(t_list **begin_list)
 {
 	int	*tab_transform;
 	int	size;
@@ -81,7 +81,7 @@ int	add_index(t_list **begin_list)
 	if (tab_transform == NULL)
 	{
 		ft_lstclear(begin_list);
-		return (0);
+		exit(EXIT_FAILURE);
 	}
 	sort_tab(tab_transform, size);
 	i = 0;
@@ -91,5 +91,4 @@ int	add_index(t_list **begin_list)
 		i++;
 	}
 	free(tab_transform);
-	return (1);
 }
