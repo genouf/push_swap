@@ -6,7 +6,7 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/16 19:36:49y genouf           ###   ########.fr        #
+#    Updated: 2022/05/18 14:13:02 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,12 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 MAKE = make -C libft
-LIBA = libft/libft.a 
+LIBA = ./libft/libft.a 
 LIB = -Llibft -lft
 
 all: ${NAME}
 
-${LIBA}:  
+${LIBA}:
 	${MAKE}
 
 ${NAME}: ${OBJS} ${LIBA}
@@ -45,4 +45,4 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY: clean fclean ${LIBA}
+.PHONY: clean fclean
