@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/18 18:20:20 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:44:01 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ typedef struct s_m_list
 	struct s_list	*bg_sa;
 	struct s_list	*bg_sb;
 }					t_m_list;
+typedef struct s_sortlist
+{
+	struct s_list	*first;
+	struct s_list	*last;
+}					t_sortlist;
 
 int		checker_argv(int argc, char **argv, t_list **begin_list, int i);
 void	swap(t_list **begin_list, char stack_name);
@@ -32,5 +37,6 @@ void	double_action(t_m_list *master_stack, void (*f)(t_list **begin_list),
 			char a_name);
 void	add_index(t_list **begin_list);
 void	sort_min(t_m_list *master_stack);
+char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack);
 
 #endif
