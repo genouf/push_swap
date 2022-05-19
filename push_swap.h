@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/19 11:36:28 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/19 14:21:59 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_tosort
 	int				count;
 	int				tmp;
 }					t_tosort;
+
+/* PROTOTYPES */
 int		checker_argv(int argc, char **argv, t_list **begin_list, int i);
 void	swap(t_list **begin_list, char stack_name);
 void	rotate(t_list **begin_list, char stack_name);
@@ -45,5 +47,7 @@ void	double_action(t_m_list *master_stack, void (*f)(t_list **begin_list),
 void	add_index(t_list **begin_list);
 void	sort_min(t_m_list *master_stack);
 char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack);
+t_sortlist find_bigger_sorted(t_list *begin_list);
+void	clean_sorted_list(t_m_list *master_stack, t_sortlist sorted_list, int count);
 
 #endif

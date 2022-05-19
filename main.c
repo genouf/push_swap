@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/18 18:19:29 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/19 14:21:31 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack)
 int main(int argc, char **argv)
 {
 	t_m_list	master_stack;
+	t_sortlist	sorted_list;
 	int		i;
 	
 	argv = begin_init(argv, &i, argc, &master_stack);
@@ -50,13 +51,18 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	add_index(&master_stack.bg_sa);
-	//ft_printf("STACK A:\n");
-	//ft_lstprint(master_stack.bg_sa);
-	//ft_printf("STACK B:\n");	
-	//ft_lstprint(master_stack.bg_sb);
-	sort_min(&master_stack);
-	//ft_printf("\n ------ \n");
-	//ft_printf("STACK A:\n");
-	//ft_lstprint(master_stack.bg_sa);
+	sorted_list = find_bigger_sorted(master_stack.bg_sa);
+	ft_printf("STACK A:\n");
+	ft_lstprint(master_stack.bg_sa);
+	ft_printf("STACK B:\n");	
+	ft_lstprint(master_stack.bg_sb);
+	clean_sorted_list(&master_stack, sorted_list, 0);
+	//sort_min(&master_stack);
+	ft_printf("\n ------ \n\n");
+	ft_printf("STACK A:\n");
+	ft_lstprint(master_stack.bg_sa);
+	ft_printf("STACK B:\n");	
+	ft_lstprint(master_stack.bg_sb);
 	return (0);
 }
+
