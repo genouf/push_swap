@@ -6,11 +6,11 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/18 14:13:02 by genouf           ###   ########.fr        #
+#    Updated: 2022/05/19 11:28:06 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c arg_check.c instructions.c instructions_bis.c add_index.c sort_this.c
+SRCS = test.c arg_check.c instructions.c instructions_bis.c add_index.c sort_this.c
 OBJS = ${SRCS:.c=.o}
 
 NAME = push_swap
@@ -18,7 +18,7 @@ NAME = push_swap
 RM = rm -f
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 MAKE = make -C libft
 LIBA = ./libft/libft.a 
