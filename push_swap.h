@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/19 14:21:59 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/19 15:29:16 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	push_b(t_list **begin_list_a, t_list **begin_list_b);
 void	double_action(t_m_list *master_stack, void (*f)(t_list **begin_list),
 			char a_name);
 void	add_index(t_list **begin_list);
-void	sort_min(t_m_list *master_stack);
+void	sort_small(t_list **begin_list);
 char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack);
 t_sortlist find_bigger_sorted(t_list *begin_list);
 void	clean_sorted_list(t_m_list *master_stack, t_sortlist sorted_list, int count);
