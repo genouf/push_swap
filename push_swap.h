@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 05:02:48 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 13:10:28 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_tosort
 }					t_tosort;
 typedef struct s_count_inst
 {
+	int	index_ok;
+	int	total_intruct;
 	int	count_instruct_a;
 	int	count_instruct_b;
 }					t_count_inst;
