@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 15:28:57 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:15:23 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ typedef struct s_count_inst
 /*		ARG_CHECK		*/
 int				checker_argv(int argc, char **argv, t_list **begin_list, int i);
 /*		INSTRUCTIONS		*/	
-void			swap(t_list **begin_list, char stack_name);
-void			rotate(t_list **begin_list, char stack_name);
-void			reverse_rotate(t_list **begin_list, char stack_name);
+void			swap(t_m_list *master_stack, char stack_name);
+void			rotate(t_m_list *master_stack, char stack_name);
+void			reverse_rotate(t_m_list *master_stack, char stack_name);
 void			double_action(t_m_list *master_stack,
 					void (*f)(t_list**begin_list), char a_name);
 /*		INSTRUCTIONS_BIS		*/
@@ -57,8 +57,9 @@ void			push_b(t_list **begin_list_a, t_list **begin_list_b);
 /*		ADD_INDEX		*/
 void			add_index(t_list **begin_list);
 /*		SORT_THIS		*/
+int				list_sorted(t_list *begin_list);
 void			clean_for_three(t_m_list *master_stack);
-void			sort_small(t_list **begin_list);
+void			sort_small(t_m_list *master_stack);
 /*		FIND_BIGGER_SORTED		*/
 t_sortlist		find_bigger_sorted(t_list *begin_list);
 void			clean_sorted_list(t_m_list *master_stack,

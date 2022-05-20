@@ -6,14 +6,127 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:57 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 15:17:49 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:12:40 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-/*void	sort_big(t_m_list *master_stack, int stack_size)
+int	init_process_sort_different(t_count_inst count_inst, char stack)
+{
+	int	count_instruct;
+
+	if (stack == 'a')
+		count_instruct = count_inst.count_instruct_a;
+	else
+		count_instruct = count_inst.count_instruct_b;
+	return (count_instruct);
+}
+
+void	process_sort_different(t_m_list *master_stack, t_count_inst count_inst, char stack)
+{
+	int	count_instruct;
+
+	count_instruct = init_process_sort_different(master_stack, count_inst, stack, &begin_stack);
+	if (count_instruct < 0)
+	{
+		while (count_instruct < 0)
+		{
+			reverse_rotate(master_stack, stack);
+			count_instruct++;		
+		}
+	}
+	else
+	{
+		while (count_instruct > 0)
+		{
+			rotate(master_stack, stack);
+			count_instruct--;
+		}
+	}
+}
+
+void	action_same(t_m_list *master_stack, int tmp, t_count_inst count_inst, char *tab_info)
+{
+	int		count_inst_min;
+	char	stack_info;
+
+	stack_info = tab_info[1];
+	if (stack_info == 'a')
+		count_inst_min = count_inst.count_instruct_b;
+	else
+		count_inst_min = count_inst.count_instruct_a;
+	if (tab_info[0] == '+')
+	{
+		while (count_inst_min > 0)
+		{
+			double_action(master_stack, &rotate, stack_info);
+			count_inst_min--;
+			tmp--;
+		}
+		while (tmp > 0)
+		{
+			rotate()
+		}
+	}	
+}
+
+void	process_sort_same_minus(t_m_list	*master_stack, t_count_inst count_inst, char *tab_info)
+{
+	if (count_inst.count_instruct_a < count_inst.count_instruct_b)
+	{
+		tab_info[0] = '-';
+		tab_info[1] = 'a';
+		action_same(master_stack, count_inst.count_instruct_a, count_inst, tab_info);
+	}
+	else
+	{
+		tab_info[0] = '-';
+		tab_info[1] = 'b';
+		action_same(master_stack, count_inst.count_instruct_b, count_inst, tab_info);
+	}
+}
+
+void	process_sort_same(t_m_list *master_stack, t_count_inst count_inst)
+{
+	char	tab_info[2];
+	
+	if (count_inst.count_instruct_a > 0)
+	{
+		if (count_inst.count_instruct_a > count_inst.count_instruct_b)
+		{
+			tab_info[0] = '+';
+			tab_info[1] = 'a';
+			action_same(master_stack, count_inst.count_instruct_a, count_inst, tab_info);
+		}
+		else
+		{
+			tab_info[0] = '+';
+			tab_info[1] = 'b';
+			action_same(master_stack, count_inst.count_instruct_b, count_inst, tab_info);
+		}
+	}
+	else
+		process_sort_same_minus(master_stack, count_inst, tab_info);
+}
+
+void	process_sort_big(t_m_list *master_stack, t_count_inst count_inst)
+{
+	if ((count_inst.count_instruct_a > 0 && count_inst.count_instruct_b > 0)
+		|| (count_inst.count_instruct_a < 0
+			&& count_inst.count_instruct_b < 0))
+	{
+		
+	}
+	else
+	{
+		process_sort_different(master_stack, count_inst, 'a');		
+		process_sort_different(master_stack, count_inst, 'b');
+	}
+}
+
+void	sort_big(t_m_list *master_stack, int stack_size)
 {
 	t_sortlist		sorted_list;
 	t_count_inst	count_inst;
@@ -40,5 +153,8 @@
 			}
 			tmp = tmp->next;
 		}
-	}	
-}*/
+		/* execution des actions */
+	}
+	while (!list_sorted(master_stack->bg_sa))
+		rotate(master_stack, 'a');
+}

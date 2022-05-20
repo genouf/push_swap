@@ -6,16 +6,21 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 21:11:48 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/18 18:20:55 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:08:45 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list **begin_list, char stack_name)
+void	swap(t_m_list *master_stack, char stack_name)
 {
 	t_list	*tmp;
+	t_list	**begin_list;
 
+	if (stack_name == 'a')
+		begin_list = &(master_stack->bg_sa);
+	else
+		begin_list = &(master_stack->bg_sb);
 	if (!(*begin_list) || (*begin_list)->next == NULL)
 		return ;
 	tmp = *begin_list;
@@ -28,11 +33,16 @@ void	swap(t_list **begin_list, char stack_name)
 		write(1, "sb\n", 3);
 }
 
-void	rotate(t_list **begin_list, char stack_name)
+void	rotate(t_m_list *master_stack, char stack_name)
 {
 	t_list	*first;
 	t_list	*last;
+	t_list	**begin_list;
 
+	if (stack_name == 'a')
+		begin_list = &(master_stack->bg_sa);
+	else
+		begin_list = &(master_stack->bg_sb);
 	if (!(*begin_list) || (*begin_list)->next == NULL)
 		return ;
 	first = *begin_list;
@@ -46,11 +56,16 @@ void	rotate(t_list **begin_list, char stack_name)
 		write(1, "rb\n", 3);
 }
 
-void	reverse_rotate(t_list **begin_list, char stack_name)
+void	reverse_rotate(t_m_list *master_stack, char stack_name)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
+	t_list	**begin_list;
 
+	if (stack_name == 'a')
+		begin_list = &(master_stack->bg_sa);
+	else
+		begin_list = &(master_stack->bg_sb);
 	if (!(*begin_list) || (*begin_list)->next == NULL)
 		return ;
 	tmp = *begin_list;

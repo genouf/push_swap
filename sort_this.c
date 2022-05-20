@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 19:38:09 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 13:34:25 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:16:24 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,29 @@ void	clean_for_three(t_m_list *master_stack)
 	}
 }
 
-void	sort_small(t_list **begin_list)
+void	sort_small(t_m_list *master_stack)
 {
 	t_list	*max;
 	t_list	*min;
-
+	t_list	**begin_list;
+	
+	begin_list = &(master_stack->bg_sa);
 	max = find_max(*begin_list);
 	min = find_min(*begin_list);
 	if ((*begin_list)->next == min && (*begin_list)->next->next == max)
-		swap(begin_list, 'a');
+		swap(master_stack, 'a');
 	else if ((*begin_list)->next->next == min && (*begin_list)->next == max)
-		reverse_rotate(begin_list, 'a');
+		reverse_rotate(master_stack, 'a');
 	else if (*begin_list == max && (*begin_list)->next == min)
-		rotate(begin_list, 'a');
+		rotate(master_stack, 'a');
 	else if (*begin_list == max && (*begin_list)->next->next == min)
 	{
-		rotate(begin_list, 'a');
-		swap(begin_list, 'a');
+		rotate(master_stack, 'a');
+		swap(master_stack, 'a');
 	}
 	else if (*begin_list == min && (*begin_list)->next == max)
 	{
-		reverse_rotate(begin_list, 'a');
-		swap(begin_list, 'a');
+		reverse_rotate(master_stack, 'a');
+		swap(master_stack, 'a');
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:07:59 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 15:31:36 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:10:17 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	clean_sorted_list(t_m_list *master_stack,
 	}
 	while (count != 0)
 	{
-		reverse_rotate(&(master_stack->bg_sa), 'a');
+		reverse_rotate(master_stack, 'a');
 		push_b(&(master_stack->bg_sa), &(master_stack->bg_sb));
 		count--;
 	}
