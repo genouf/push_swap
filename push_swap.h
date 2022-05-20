@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 17:15:23 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:44:41 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void			swap(t_m_list *master_stack, char stack_name);
 void			rotate(t_m_list *master_stack, char stack_name);
 void			reverse_rotate(t_m_list *master_stack, char stack_name);
 void			double_action(t_m_list *master_stack,
-					void (*f)(t_list**begin_list), char a_name);
+					void (*f)(t_m_list *master_stack, char stack_name), char a_name);
 /*		INSTRUCTIONS_BIS		*/
 void			push_a(t_list **begin_list_a, t_list **begin_list_b);
 void			push_b(t_list **begin_list_a, t_list **begin_list_b);
@@ -70,5 +70,6 @@ t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack,
 					int size_b, int size_a);
 void			set_total_instruct(t_count_inst *count_inst);
 /*		SORT_THIS_BIG_DO		*/
+void			sort_big(t_m_list *master_stack);
 
 #endif

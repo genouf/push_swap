@@ -6,7 +6,7 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/20 15:39:47 by genouf           ###   ########.fr        #
+#    Updated: 2022/05/20 18:06:22 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = push_swap
 RM = rm -f
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -g
 
 MAKE = make -C libft
 LIBA = ./libft/libft.a 

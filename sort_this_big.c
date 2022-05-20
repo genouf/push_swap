@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:23:55 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 15:29:56 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 18:17:30 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	set_index(t_count_inst *count_inst, int count, int size_stack,
 	if (name == 'a')
 	{
 		if (count > (size_stack / 2))
-			count_inst->count_instruct_a = count - size_stack - 1;
+			count_inst->count_instruct_a = count - size_stack;
 		else
 			count_inst->count_instruct_a = count;
 	}
