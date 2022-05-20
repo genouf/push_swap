@@ -25,6 +25,21 @@
 	}
 }*/
 
+int	size_sorted_list(t_sortlist sorted_list)
+{
+	t_list	*tmp;
+	int		count;
+
+	count = 0;
+	tmp = sorted_list.first;
+	while (tmp && tmp != sorted_list.last->next)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	return (count);
+}
+
 t_tosort	init_find_bigger(t_list *begin_list, t_sortlist *sorted_list)
 {
 	t_tosort	tosort;

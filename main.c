@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/19 15:33:42 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 05:16:56 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int main(int argc, char **argv)
 {
 	t_m_list	master_stack;
 	//t_sortlist	sorted_list;
+	t_count_inst	count_inst;
 	int		i;
 	
 	argv = begin_init(argv, &i, argc, &master_stack);
@@ -56,13 +57,28 @@ int main(int argc, char **argv)
 	ft_lstprint(master_stack.bg_sa);
 	printf("STACK B:\n");	
 	ft_lstprint(master_stack.bg_sb);
-	//clean_sorted_list(&master_stack, sorted_list, 0);
-	sort_small(&(master_stack.bg_sa));
+	push_b(&(master_stack.bg_sa), &(master_stack.bg_sb));
+	push_b(&(master_stack.bg_sa), &(master_stack.bg_sb));
+	push_b(&(master_stack.bg_sa), &(master_stack.bg_sb));
 	printf("\n ------ \n\n");
 	printf("STACK A:\n");
 	ft_lstprint(master_stack.bg_sa);
 	printf("STACK B:\n");	
 	ft_lstprint(master_stack.bg_sb);
+	count_inst = find_next_index(master_stack.bg_sb->next, &master_stack, ft_lstsize(master_stack.bg_sa), ft_lstsize(master_stack.bg_sa));
+	printf("\n\n[%d][%d]", count_inst.count_instruct_a, count_inst.count_instruct_b);
+	//push_b(&(master_stack.bg_sa), &(master_stack.bg_sb));
+	//count_inst = find_next_index(master_stack.bg_sb, &master_stack, ft_lstsize(master_stack.bg_sa), ft_lstsize(master_stack.bg_sa));
+	//printf("\n\n[%d][%d]", count_inst.count_instruct_a, count_inst.count_instruct_b);
+	//clean_sorted_list(&master_stack, sorted_list, 0);
+	//sort_small(&(master_stack.bg_sa));
+	//clean_for_three(&master_stack);
+	//printf("\n ------ \n\n");
+	//printf("STACK A:\n");
+	//ft_lstprint(master_stack.bg_sa);
+	//printf("STACK B:\n");	
+	//ft_lstprint(master_stack.bg_sb);
+	//printf("NB SORTED:%d", size_sorted_list(sorted_list));
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 19:38:09 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/19 15:35:38 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/19 20:02:08 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,18 @@ t_list	*find_max(t_list *begin_list)
 		begin_list = begin_list->next;
 	}
 	return (result);
+}
+
+void	clean_for_three(t_m_list *master_stack)
+{
+	int	size;
+
+	size = ft_lstsize(master_stack->bg_sa);
+	while (size > 3)
+	{
+		push_b(&(master_stack->bg_sa), &(master_stack->bg_sb));
+		size--;
+	}
 }
 
 void	sort_small(t_list **begin_list)
