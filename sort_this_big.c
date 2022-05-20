@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:23:55 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 13:34:08 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:29:56 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,43 @@ t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack,
 	return (count_inst);
 }
 
-/*void	sort_big(t_m_list *master_stack, int stack_size)
+void	process_total_instruct(t_count_inst *count_inst, int *count_total)
 {
-	t_sortlist	sorted_list;
-
-	sorted_list = find_bigger_sorted(master_stack->bg_sa);
-	if (size_sorted_list(sorted_list) < 4)
-		clean_for_three(master_stack);
+	if (count_inst->count_instruct_a > 0)
+		*count_total += count_inst->count_instruct_a;
 	else
-		clean_sorted_list(&master_stack, sorted_list, 0);
-	while (master_stack->bg_sb)
+		*count_total += count_inst->count_instruct_a * -1;
+	if (count_inst->count_instruct_b > 0)
+		*count_total += count_inst->count_instruct_b;
+	else
+		*count_total += count_inst->count_instruct_b * -1;
+}
+
+void	set_total_instruct(t_count_inst *count_inst)
+{
+	int	count_total;
+
+	count_total = 0;
+	if ((count_inst->count_instruct_a > 0 && count_inst->count_instruct_b > 0)
+		|| (count_inst->count_instruct_a < 0
+			&& count_inst->count_instruct_b < 0))
 	{
-		
-	}	
-}*/
+		if (count_inst->count_instruct_a > 0)
+		{
+			if (count_inst->count_instruct_a >= count_inst->count_instruct_b)
+				count_total = count_inst->count_instruct_a;
+			else
+				count_total = count_inst->count_instruct_b;
+		}
+		else
+		{
+			if (count_inst->count_instruct_a <= count_inst->count_instruct_b)
+				count_total = count_inst->count_instruct_a * -1;
+			else
+				count_total = count_inst->count_instruct_b * -1;
+		}
+	}
+	else
+		process_total_instruct(count_inst, &count_total);
+	count_inst->total_intruct = count_total;
+}

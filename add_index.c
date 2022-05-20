@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 04:45:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/18 18:00:36 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:39:08 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	set_in_list(t_list **begin_list, int content, int index)
 	}	
 }
 
-void add_index(t_list **begin_list)
+void	add_index(t_list **begin_list)
 {
 	int	*tab_transform;
 	int	size;

@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 13:10:28 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:28:57 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,31 @@ typedef struct s_count_inst
 }					t_count_inst;
 
 /* PROTOTYPES */
-int		checker_argv(int argc, char **argv, t_list **begin_list, int i);
-void	swap(t_list **begin_list, char stack_name);
-void	rotate(t_list **begin_list, char stack_name);
-void	reverse_rotate(t_list **begin_list, char stack_name);
-void	push_a(t_list **begin_list_a, t_list **begin_list_b);
-void	push_b(t_list **begin_list_a, t_list **begin_list_b);
-void	double_action(t_m_list *master_stack, void (*f)(t_list **begin_list),
-			char a_name);
-void	add_index(t_list **begin_list);
-void	sort_small(t_list **begin_list);
-char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack);
-t_sortlist find_bigger_sorted(t_list *begin_list);
-void	clean_sorted_list(t_m_list *master_stack, t_sortlist sorted_list, int count);
-int		size_sorted_list(t_sortlist sorted_list);
-void	clean_for_three(t_m_list *master_stack);
+/*		ARG_CHECK		*/
+int				checker_argv(int argc, char **argv, t_list **begin_list, int i);
+/*		INSTRUCTIONS		*/	
+void			swap(t_list **begin_list, char stack_name);
+void			rotate(t_list **begin_list, char stack_name);
+void			reverse_rotate(t_list **begin_list, char stack_name);
+void			double_action(t_m_list *master_stack,
+					void (*f)(t_list**begin_list), char a_name);
+/*		INSTRUCTIONS_BIS		*/
+void			push_a(t_list **begin_list_a, t_list **begin_list_b);
+void			push_b(t_list **begin_list_a, t_list **begin_list_b);
+/*		ADD_INDEX		*/
+void			add_index(t_list **begin_list);
+/*		SORT_THIS		*/
+void			clean_for_three(t_m_list *master_stack);
+void			sort_small(t_list **begin_list);
+/*		FIND_BIGGER_SORTED		*/
+t_sortlist		find_bigger_sorted(t_list *begin_list);
+void			clean_sorted_list(t_m_list *master_stack,
+					t_sortlist sorted_list, int count);
+int				size_sorted_list(t_sortlist sorted_list);
 /*		SORT_THIS_BIG		*/
-t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack, int size_b, int size_a);
+t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack,
+					int size_b, int size_a);
+void			set_total_instruct(t_count_inst *count_inst);
+/*		SORT_THIS_BIG_DO		*/
 
 #endif

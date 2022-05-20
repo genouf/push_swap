@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 13:30:09 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:00:34 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,17 @@ int main(int argc, char **argv)
 	//count_inst = find_next_index(master_stack.bg_sb, &master_stack, ft_lstsize(master_stack.bg_sa), ft_lstsize(master_stack.bg_sa));
 	//printf("\n[%d]", count_inst.count_instruct_a);
 	//printf("\n[%d]", count_inst.count_instruct_b);
-	push_a(&(master_stack.bg_sa), &(master_stack.bg_sb));
-	push_a(&(master_stack.bg_sa), &(master_stack.bg_sb));
 	printf("\n ------ \n\n");
 	printf("STACK A:\n");
 	ft_lstprint(master_stack.bg_sa);
 	printf("STACK B:\n");	
 	ft_lstprint(master_stack.bg_sb);
-	count_inst = find_next_index(master_stack.bg_sb, &master_stack, ft_lstsize(master_stack.bg_sa), ft_lstsize(master_stack.bg_sa));
+	count_inst = find_next_index(master_stack.bg_sb->next, &master_stack, ft_lstsize(master_stack.bg_sa), ft_lstsize(master_stack.bg_sa));
+	count_inst.count_instruct_b = -3;
+	set_total_instruct(&count_inst);
 	printf("\n[%d]", count_inst.count_instruct_a);
 	printf("\n[%d]", count_inst.count_instruct_b);
+	printf("\ntotal:[%d]", count_inst.total_intruct);
 	//clean_sorted_list(&master_stack, sorted_list, 0);
 	//sort_small(&(master_stack.bg_sa));
 	//clean_for_three(&master_stack);
