@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 18:27:38 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 19:25:56by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,18 @@ int main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
+	if (i == 0)
+	{
+		while (argv[i])
+		{
+			free(argv[i]);
+			i++;
+		}
+		free(argv);
+	}
 	add_index(&master_stack.bg_sa);
-	/*ft_printf("STACK A:\n");
-	ft_lstprint(master_stack.bg_sa);*/
-	//ft_printf("STACK B:\n");	
-	//ft_lstprint(master_stack.bg_sb);
 	sort_big(&master_stack);
+	ft_lstclear(&(master_stack.bg_sa));
 	/*printf("STACK A:\n");
 	ft_lstprint(master_stack.bg_sa);*/
 	return (0);
