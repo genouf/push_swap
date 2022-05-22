@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 19:38:09 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 17:16:24 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 21:00:07 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	sort_small(t_m_list *master_stack)
 	t_list	*max;
 	t_list	*min;
 	t_list	**begin_list;
-	
+
 	begin_list = &(master_stack->bg_sa);
 	max = find_max(*begin_list);
 	min = find_min(*begin_list);

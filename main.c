@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 19:25:56by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 20:59:40 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack)
 	return (argv);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_m_list	master_stack;
-	int		i;
-	
+	int			i;
+
 	argv = begin_init(argv, &i, argc, &master_stack);
 	if (!checker_argv(argc, argv, &(master_stack.bg_sa), i))
 	{
@@ -60,7 +60,5 @@ int main(int argc, char **argv)
 	add_index(&master_stack.bg_sa);
 	sort_big(&master_stack);
 	ft_lstclear(&(master_stack.bg_sa));
-	/*printf("STACK A:\n");
-	ft_lstprint(master_stack.bg_sa);*/
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 21:11:48 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/21 21:39:44 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 20:59:01 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ void	reverse_rotate(t_m_list *master_stack, char stack_name)
 		write(1, "rrb\n", 4);
 }
 
-void	double_action(t_m_list *master_stack, void (*f)(t_m_list *master_stack, char stack_name),
-	char a_name)
+void	double_action(t_m_list *master_stack, void (*f)(t_m_list *master_stack,
+	char stack_name), char a_name)
 {
 	(*f)(master_stack, 'q');
 	(*f)(master_stack, 'w');

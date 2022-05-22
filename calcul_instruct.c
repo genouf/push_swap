@@ -6,17 +6,17 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 17:12:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 19:49:14 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 20:55:57 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	index_exist(int	index, t_list *bg_sa)
+int	index_exist(int index, t_list *bg_sa)
 {
 	t_list	*tmp;
 	int		count;
-	
+
 	count = 0;
 	tmp = bg_sa;
 	while (tmp)
@@ -35,7 +35,7 @@ int	index_exist(int	index, t_list *bg_sa)
 	return (count);
 }
 
-void	set_index(t_count_inst *count_inst, int count, int size_stack,
+void	set_index(t_c_i *count_inst, int count, int size_stack,
 	char name)
 {
 	if (name == 'a')
@@ -55,7 +55,7 @@ void	set_index(t_count_inst *count_inst, int count, int size_stack,
 }
 
 void	find_index_b(t_list *b_element, t_list *tmp, int size_b,
-	t_count_inst *count_inst)
+	t_c_i *count_inst)
 {
 	int	count;
 
@@ -72,8 +72,12 @@ void	find_index_b(t_list *b_element, t_list *tmp, int size_b,
 	}
 }
 
-int	calcul_index_a(t_list *tmp, int index, int	count)
+int	calcul_index_a(t_list *tmp, int index, int count)
 {
+	if (count == 1)
+		index--;
+	else if (count == 2)
+		index++;
 	while (tmp)
 	{
 		if (tmp->index == index)
@@ -83,32 +87,29 @@ int	calcul_index_a(t_list *tmp, int index, int	count)
 	}
 }
 
-t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack,
+t_c_i	find_next_index(t_list *b_element, t_m_list *master_stack,
 	int size_b, int size_a)
 {
-	t_list			*tmp;
-	t_count_inst	count_inst;
-	int				count;
+	t_list	*tmp;
+	t_c_i	count_inst;
+	int		count;
 
 	tmp = master_stack->bg_sb;
 	find_index_b(b_element, tmp, size_b, &count_inst);
 	tmp = master_stack->bg_sa;
 	count = index_exist(b_element->index, tmp);
-	if (count == 1)
-		count = calcul_index_a(tmp, b_element->index - 1, 1);
-	else if (count == 2)
-		count = calcul_index_a(tmp, b_element->index + 1, 0);
-	else if (count == 3)
+	if (count == 3)
 	{
-		if (calcul_index_a(tmp, b_element->index - 1, 1) >= calcul_index_a(tmp, b_element->index + 1, 0))
-			count = calcul_index_a(tmp, b_element->index - 1, 1);
+		if (calcul_index_a(tmp, b_element->index, 1)
+			>= calcul_index_a(tmp, b_element->index, 2))
+			count = calcul_index_a(tmp, b_element->index, 1);
 		else
-			count = calcul_index_a(tmp, b_element->index + 1, 0);	
+			count = calcul_index_a(tmp, b_element->index, 2);
 	}
 	set_index(&count_inst, count, size_a, 'a');
 	if (index_exist(b_element->index, tmp) == 0)
 		count_inst.index_ok = 0;
 	else
-		count_inst.index_ok = 1;	
+		count_inst.index_ok = 1;
 	return (count_inst);
 }
