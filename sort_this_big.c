@@ -6,12 +6,11 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:23:55 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 17:12:54 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 19:50:40 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	process_total_instruct(t_count_inst *count_inst, int *count_total)
 {

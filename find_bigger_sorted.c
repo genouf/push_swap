@@ -6,24 +6,11 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:07:59 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 17:10:17 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 19:49:51 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-/*void	ft_lstprintsorted(t_sortlist sorted_list)
-{
-	t_list	*tmp;
-
-	tmp = sorted_list.first;
-	while (tmp && tmp != sorted_list.last->next)
-	{
-		ft_printf("%d\n", tmp->content);
-		tmp = tmp->next;
-	}
-}*/
 
 int	size_sorted_list(t_sortlist sorted_list)
 {

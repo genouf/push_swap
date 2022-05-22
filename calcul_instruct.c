@@ -6,12 +6,11 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 17:12:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 18:06:32 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 19:49:14 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	index_exist(int	index, t_list *bg_sa)
 {

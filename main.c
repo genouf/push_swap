@@ -11,16 +11,15 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	ft_lstprint(t_list *begin_list)
+/*void	ft_lstprint(t_list *begin_list)
 {
 	while (begin_list)
 	{
 		printf("%d  %d\n", begin_list->content, begin_list->index);
 		begin_list = begin_list->next;
 	}
-}
+}*/
 
 char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack)
 {
