@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 17:12:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 20:55:57 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 23:06:27 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ int	calcul_index_a(t_list *tmp, int index, int count)
 	if (count == 1)
 		index--;
 	else if (count == 2)
+	{
 		index++;
+		count = 0;
+	}
 	while (tmp)
 	{
 		if (tmp->index == index)
@@ -98,7 +101,9 @@ t_c_i	find_next_index(t_list *b_element, t_m_list *master_stack,
 	find_index_b(b_element, tmp, size_b, &count_inst);
 	tmp = master_stack->bg_sa;
 	count = index_exist(b_element->index, tmp);
-	if (count == 3)
+	if (count == 1 || count == 2)
+		count = calcul_index_a(tmp, b_element->index, count);
+	else if (count == 3)
 	{
 		if (calcul_index_a(tmp, b_element->index, 1)
 			>= calcul_index_a(tmp, b_element->index, 2))
