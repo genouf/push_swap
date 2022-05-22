@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:57 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 18:24:30 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 13:35:57 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	process_action_same(t_m_list *master_stack, int tmp, int count_inst_min, ch
 {
 	while (count_inst_min < 0)
 	{
-		double_action(master_stack, &reverse_rotate, stack_info);
+		double_action(master_stack, &reverse_rotate, 'w');
 		count_inst_min++;
 		tmp++;
 	}
@@ -78,7 +78,7 @@ void	action_same(t_m_list *master_stack, int tmp, t_count_inst count_inst, char 
 	{
 		while (count_inst_min > 0)
 		{
-			double_action(master_stack, &rotate, stack_info);
+			double_action(master_stack, &rotate, 'r');
 			count_inst_min--;
 			tmp--;
 		}
@@ -147,6 +147,36 @@ void	process_sort_big(t_m_list *master_stack, t_count_inst count_inst)
 	push_a(&(master_stack->bg_sa), &(master_stack->bg_sb));
 }
 
+void	clean_end(t_m_list *master_stack)
+{
+	int		count;
+	int		size_lst;
+	t_list	*tmp;
+
+	tmp = master_stack->bg_sa;
+	size_lst = ft_lstsize(master_stack->bg_sa);
+	count = 0;
+	while (tmp->index != 0)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	if (count > size_lst)
+		count = count -size_lst;
+	if (count > 0)
+	{
+		count++;
+		while (--count > 0)
+			rotate(master_stack, 'a');
+	}
+	else
+	{
+		count--;
+		while (++count < 0)
+			reverse_rotate(master_stack, 'a');
+	}
+}
+
 void	sort_big(t_m_list *master_stack)
 {
 	t_sortlist		sorted_list;
@@ -154,9 +184,7 @@ void	sort_big(t_m_list *master_stack)
 	t_count_inst	tmp_count;
 	t_list			*tmp;
 
-	count_inst.total_intruct = -1;
 	sorted_list = find_bigger_sorted(master_stack->bg_sa);
-	//ft_printf("%d", size_sorted_list(sorted_list));
 	if (size_sorted_list(sorted_list) < 4)
 	{
 		clean_for_three(master_stack);
@@ -164,11 +192,18 @@ void	sort_big(t_m_list *master_stack)
 	}
 	else
 	{
-		ft_printf("la");
 		clean_sorted_list(master_stack, sorted_list, 0);
 	}
+	ft_printf("\n ------ \n\n");
+	ft_printf("STACK A:\n");
+	ft_lstprint(master_stack->bg_sa);
+	ft_printf("STACK B:\n");	
+	ft_lstprint(master_stack->bg_sb);
 	while (master_stack->bg_sb)
 	{
+		count_inst.initialized = 0;
+		if (ft_lstsize(master_stack->bg_sb) == 1 && master_stack->bg_sb->index == 0)
+			push_a(&(master_stack->bg_sa), &(master_stack->bg_sb));
 		tmp = master_stack->bg_sb;
 		while (tmp)
 		{
@@ -176,16 +211,23 @@ void	sort_big(t_m_list *master_stack)
 			if (tmp_count.index_ok == 1)
 			{
 				set_total_instruct(&tmp_count);
-				if (tmp_count.total_intruct > count_inst.total_intruct)
+				if (count_inst.initialized == 0 || tmp_count.total_intruct < count_inst.total_intruct)
+				{
+					count_inst.initialized = 1;	
 					count_inst = tmp_count;
+				}
 			}
 			tmp = tmp->next;
 		}
-		/*ft_printf("a:[%d]\n", count_inst.count_instruct_a);
+		ft_printf("a:[%d]\n", count_inst.count_instruct_a);
 		ft_printf("b:[%d]\n", count_inst.count_instruct_b);
-		ft_printf("total:[%d]\n", count_inst.total_intruct);*/
-		//process_sort_big(master_stack, count_inst);
+		ft_printf("total:[%d]\n", count_inst.total_intruct);
+		process_sort_big(master_stack, count_inst);
+		ft_printf("\n ------ \n\n");
+		ft_printf("STACK A:\n");
+		ft_lstprint(master_stack->bg_sa);
+		ft_printf("STACK B:\n");	
+		ft_lstprint(master_stack->bg_sb);
 	}
-	/*while (!list_sorted(master_stack->bg_sa))
-		rotate(master_stack, 'a');*/
+	clean_end(master_stack);
 }

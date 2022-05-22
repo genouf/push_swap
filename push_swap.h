@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 17:44:41 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/21 21:12:44 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_tosort
 }					t_tosort;
 typedef struct s_count_inst
 {
+	int	initialized;
 	int	index_ok;
 	int	total_intruct;
 	int	count_instruct_a;
@@ -71,5 +72,6 @@ t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack,
 void			set_total_instruct(t_count_inst *count_inst);
 /*		SORT_THIS_BIG_DO		*/
 void			sort_big(t_m_list *master_stack);
+void	ft_lstprint(t_list *begin_list);
 
 #endif

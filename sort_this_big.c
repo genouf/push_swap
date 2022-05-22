@@ -6,12 +6,23 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:23:55 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 18:17:30 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 13:43:49 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+int	index_exist(int	index, t_list *bg_sa)
+{
+	while (bg_sa)
+	{
+		if (bg_sa->index == index - 1)
+			return (1);
+		bg_sa = bg_sa->next;
+	}
+	return (0);
+}
 
 void	set_index(t_count_inst *count_inst, int count, int size_stack,
 	char name)
@@ -59,6 +70,7 @@ t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack,
 
 	tmp = master_stack->bg_sb;
 	find_index_b(b_element, tmp, size_b, &count_inst);
+	//ft_printf("instruct b:%d\n", count_inst.count_instruct_b);
 	count = 1;
 	tmp = master_stack->bg_sa;
 	while (tmp)
@@ -71,7 +83,8 @@ t_count_inst	find_next_index(t_list *b_element, t_m_list *master_stack,
 		count++;
 		tmp = tmp->next;
 	}
-	if (tmp == NULL)
+	//ft_printf("instruct a:%d\n", count_inst.count_instruct_a);
+	if (tmp == NULL || !index_exist(b_element->index, master_stack->bg_sa))
 		count_inst.index_ok = 0;
 	else
 		count_inst.index_ok = 1;

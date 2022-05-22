@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 21:11:48 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/20 17:44:30 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/21 21:39:44 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	rotate(t_m_list *master_stack, char stack_name)
 	t_list	*last;
 	t_list	**begin_list;
 
-	if (stack_name == 'a')
+	if (stack_name == 'a' || stack_name == 'q')
 		begin_list = &(master_stack->bg_sa);
 	else
 		begin_list = &(master_stack->bg_sb);
@@ -52,7 +52,7 @@ void	rotate(t_m_list *master_stack, char stack_name)
 	first->next = NULL;
 	if (stack_name == 'a')
 		write(1, "ra\n", 3);
-	else
+	else if (stack_name == 'b')
 		write(1, "rb\n", 3);
 }
 
@@ -62,7 +62,7 @@ void	reverse_rotate(t_m_list *master_stack, char stack_name)
 	t_list	*tmp2;
 	t_list	**begin_list;
 
-	if (stack_name == 'a')
+	if (stack_name == 'a' || stack_name == 'q')
 		begin_list = &(master_stack->bg_sa);
 	else
 		begin_list = &(master_stack->bg_sb);
@@ -77,15 +77,15 @@ void	reverse_rotate(t_m_list *master_stack, char stack_name)
 	(*begin_list)->next = tmp;
 	if (stack_name == 'a')
 		write(1, "rra\n", 4);
-	else
+	else if (stack_name == 'b')
 		write(1, "rrb\n", 4);
 }
 
 void	double_action(t_m_list *master_stack, void (*f)(t_m_list *master_stack, char stack_name),
 	char a_name)
 {
-	(*f)(master_stack, a_name);
-	(*f)(master_stack, a_name);
+	(*f)(master_stack, 'q');
+	(*f)(master_stack, 'w');
 	if (a_name == 's')
 		write(1, "ss\n", 3);
 	else if (a_name == 'r')
