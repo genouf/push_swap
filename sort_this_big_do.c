@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:57 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 13:35:57 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/22 18:27:10 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,16 +194,14 @@ void	sort_big(t_m_list *master_stack)
 	{
 		clean_sorted_list(master_stack, sorted_list, 0);
 	}
-	ft_printf("\n ------ \n\n");
+	/*ft_printf("\n ------ \n\n");
 	ft_printf("STACK A:\n");
 	ft_lstprint(master_stack->bg_sa);
 	ft_printf("STACK B:\n");	
-	ft_lstprint(master_stack->bg_sb);
+	ft_lstprint(master_stack->bg_sb);*/
 	while (master_stack->bg_sb)
 	{
 		count_inst.initialized = 0;
-		if (ft_lstsize(master_stack->bg_sb) == 1 && master_stack->bg_sb->index == 0)
-			push_a(&(master_stack->bg_sa), &(master_stack->bg_sb));
 		tmp = master_stack->bg_sb;
 		while (tmp)
 		{
@@ -219,15 +217,15 @@ void	sort_big(t_m_list *master_stack)
 			}
 			tmp = tmp->next;
 		}
-		ft_printf("a:[%d]\n", count_inst.count_instruct_a);
+		/*ft_printf("a:[%d]\n", count_inst.count_instruct_a);
 		ft_printf("b:[%d]\n", count_inst.count_instruct_b);
-		ft_printf("total:[%d]\n", count_inst.total_intruct);
+		ft_printf("total:[%d]\n", count_inst.total_intruct);*/
 		process_sort_big(master_stack, count_inst);
-		ft_printf("\n ------ \n\n");
+		/*ft_printf("\n ------ \n\n");
 		ft_printf("STACK A:\n");
 		ft_lstprint(master_stack->bg_sa);
 		ft_printf("STACK B:\n");	
-		ft_lstprint(master_stack->bg_sb);
+		ft_lstprint(master_stack->bg_sb);*/
 	}
 	clean_end(master_stack);
 }
