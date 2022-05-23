@@ -6,11 +6,11 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/22 20:23:19 by genouf           ###   ########.fr        #
+#    Updated: 2022/05/23 14:57:57 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c arg_check.c instructions.c instructions_bis.c add_index.c sort_this.c find_bigger_sorted.c sort_this_big.c sort_this_big_do.c sort_this_big_do_bis.c calcul_instruct.c
+SRCS = main.c arg_check.c instructions.c instructions_bis.c add_index.c sort_this.c find_bigger_sorted.c sort_this_big.c sort_this_big_do.c sort_this_big_do_bis.c calcul_instruct.c calcul_i_a.c
 OBJS = ${SRCS:.c=.o}
 
 NAME = push_swap
