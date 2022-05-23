@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:23:55 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/22 21:10:31 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/23 12:38:09 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,30 @@ void	process_sort_same(t_m_list *master_stack, t_c_i count_inst)
 	}
 	else
 		process_sort_same_minus(master_stack, count_inst, tab_info);
+}
+
+int	find_inf_median(t_list *begin_list, int median)
+{
+	while (begin_list)
+	{
+		if (begin_list->index < median)
+			return (1);
+		begin_list = begin_list->next;
+	}
+	return (0);
+}
+
+void	push_sort(t_m_list *master_stack)
+{
+	int	median;
+
+	median = ft_lstsize(master_stack->bg_sa) / 2;
+	while (find_inf_median(master_stack->bg_sa, median))
+	{
+		if(master_stack->bg_sa->index < median)
+			push_b(&(master_stack->bg_sa), &(master_stack->bg_sb));
+		else
+			rotate(master_stack, 'a');
+	}
+	clean_for_three(master_stack);
 }
