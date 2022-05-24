@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:57 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 11:17:18 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 11:27:21 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,7 @@ void	sort_big(t_m_list *master_stack)
 			tmp_count = find_next_index(tmp, master_stack,
 					ft_lstsize(master_stack->bg_sb),
 					ft_lstsize(master_stack->bg_sa));
-			if (tmp_count.index_ok == 1)
-				choose_best_inst(&tmp_count, &count_inst);
+			choose_best_inst(&tmp_count, &count_inst);
 			tmp = tmp->next;
 		}
 		process_sort_big(master_stack, count_inst);

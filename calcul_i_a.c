@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:46:55 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 11:19:37 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 11:25:23 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,3 @@ int	calcul_inst_a(t_m_list *master_stack, t_list *b_elem)
 				find_cyclic_part(master_stack->bg_sa));
 	return (count);
 }
-
-/*int	main(void)
-{
-	t_list *begin_list;
-	t_list	*tmp;
-
-	begin_list = ft_lstnew(4);
-	ft_lstadd_back(&begin_list, ft_lstnew(5));
-	ft_lstadd_back(&begin_list, ft_lstnew(6));
-	ft_lstadd_back(&begin_list, ft_lstnew(1));
-	ft_lstadd_back(&begin_list, ft_lstnew(2));
-	ft_lstadd_back(&begin_list, ft_lstnew(3));
-	tmp = find_cyclic_part(begin_list);
-	printf("%d", tmp->content);
-	//printf("%d", calcul_cyclic(begin_list, find_cyclic_part(begin_list)));
-}*/
