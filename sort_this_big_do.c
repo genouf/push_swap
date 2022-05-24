@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:57 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 11:27:21 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 15:26:17 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	sort_big(t_m_list *master_stack)
 	t_c_i	tmp_count;
 	t_list	*tmp;
 
+	if (list_sorted(master_stack->bg_sa))
+		return ;
 	init_sort_big(master_stack);
 	while (master_stack->bg_sb)
 	{

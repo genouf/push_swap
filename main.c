@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 11:25:56 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 15:29:50 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack)
 	else
 		*i = 1;
 	return (argv);
+}
+
+void	redirect(t_m_list *master_stack)
+{
+	int	i;
+
+	i = ft_lstsize(master_stack->bg_sa);
+	if (i == 2)
+	{
+		if (!list_sorted(master_stack->bg_sa))
+			swap(master_stack, 'a');
+	}
+	else if (i > 2)
+		sort_big(master_stack);
 }
 
 int	main(int argc, char **argv)
@@ -49,7 +63,7 @@ int	main(int argc, char **argv)
 		free(argv);
 	}
 	add_index(&master_stack.bg_sa);
-	sort_big(&master_stack);
+	redirect(&master_stack);
 	ft_lstclear(&(master_stack.bg_sa));
 	return (0);
 }
