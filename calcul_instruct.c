@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 17:12:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/23 18:08:57 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 11:21:37 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	find_index_b(t_list *b_element, t_list *tmp, int size_b,
 	}
 }
 
-int	calcul_index_a(t_list *tmp, int index, int count)
+void	calcul_index_a(t_list *tmp, int index, int count)
 {
 	if (count == 1)
 		index--;
@@ -84,7 +84,7 @@ int	calcul_index_a(t_list *tmp, int index, int count)
 	while (tmp)
 	{
 		if (tmp->index == index)
-			return (count);
+			break ;
 		count++;
 		tmp = tmp->next;
 	}
@@ -101,17 +101,6 @@ t_c_i	find_next_index(t_list *b_element, t_m_list *master_stack,
 	find_index_b(b_element, tmp, size_b, &count_inst);
 	tmp = master_stack->bg_sa;
 	count = calcul_inst_a(master_stack, b_element);
-	/*count = index_exist(b_element->index, tmp);
-	if (count == 1 || count == 2)
-		count = calcul_index_a(tmp, b_element->index, count);
-	else if (count == 3)
-	{
-		if (calcul_index_a(tmp, b_element->index, 1)
-			>= calcul_index_a(tmp, b_element->index, 2))
-			count = calcul_index_a(tmp, b_element->index, 1);
-		else
-			count = calcul_index_a(tmp, b_element->index, 2);
-	}*/
 	if (count == -1)
 		count_inst.index_ok = 0;
 	else

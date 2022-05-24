@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:23:55 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/23 12:38:09 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 11:17:35 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	push_sort(t_m_list *master_stack)
 	median = ft_lstsize(master_stack->bg_sa) / 2;
 	while (find_inf_median(master_stack->bg_sa, median))
 	{
-		if(master_stack->bg_sa->index < median)
+		if (master_stack->bg_sa->index < median)
 			push_b(&(master_stack->bg_sa), &(master_stack->bg_sb));
 		else
 			rotate(master_stack, 'a');

@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:57 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/23 18:35:26 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 11:17:18 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,10 @@ void	clean_end(t_m_list *master_stack, int count)
 	}
 }
 
-/*void	init_sort_big(t_m_list *master_stack)
-{
-	t_s_l	sorted_list;
-
-	sorted_list = find_bigger_sorted(master_stack->bg_sa);
-	if (size_sorted_list(sorted_list) < 4)
-	{
-		clean_for_three(master_stack);
-		sort_small(master_stack);
-	}
-	else
-		clean_sorted_list(master_stack, sorted_list, 0);
-}*/
-
 void	init_sort_big(t_m_list *master_stack)
 {
-		push_sort(master_stack);
-		sort_small(master_stack);
+	push_sort(master_stack);
+	sort_small(master_stack);
 }
 
 void	choose_best_inst(t_c_i *tmp_count, t_c_i *count_inst)
@@ -95,10 +81,6 @@ void	sort_big(t_m_list *master_stack)
 	t_list	*tmp;
 
 	init_sort_big(master_stack);
-	/*ft_printf("\nSTACK A :\n");
-	ft_lstprint(master_stack->bg_sa);
-	ft_printf("\nSTACK B :\n");
-	ft_lstprint(master_stack->bg_sb);*/
 	while (master_stack->bg_sb)
 	{
 		count_inst.initialized = 0;
@@ -111,15 +93,8 @@ void	sort_big(t_m_list *master_stack)
 			if (tmp_count.index_ok == 1)
 				choose_best_inst(&tmp_count, &count_inst);
 			tmp = tmp->next;
-			/*printf("[%d]\n", count_inst.count_instruct_a);
-			printf("[%d]\n", count_inst.count_instruct_b);*/
 		}
-		
 		process_sort_big(master_stack, count_inst);
-		/*ft_printf("\nSTACK A :\n");
-		ft_lstprint(master_stack->bg_sa);
-		ft_printf("\nSTACK B :\n");
-		ft_lstprint(master_stack->bg_sb);*/
 	}
 	clean_end(master_stack, 0);
 }
