@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 11:27:49 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/24 17:01:25 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ void	process_sort_different(t_m_list *master_stack, t_c_i count_inst,
 			char stack);
 void	process_sort_same(t_m_list *master_stack, t_c_i count_inst);
 int		calcul_inst_a(t_m_list *master_stack, t_list *b_elem);
+char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack);
 
 #endif
