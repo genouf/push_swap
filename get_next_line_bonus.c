@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:45:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/25 12:13:56 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/25 16:43:22 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ char	*process_line(char *result, char *buff, int	*ret, int fd)
 		tmp = result;
 		result = ft_strjoin_gnl(tmp, buff);
 		*ret = read(fd, buff, 6);
+		if (*ret == -1)
+			return (free(tmp), free(result), NULL);
 		buff[*ret] = '\0';
 		free(tmp);
 	}

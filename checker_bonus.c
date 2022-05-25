@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:33:45 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/25 13:42:01 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/25 16:46:26 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	sort(t_m_list *master_stack)
 	{
 		if (instruct != NULL)
 			do_instructions(instruct, master_stack);
+		free(instruct);
 		instruct = get_next_line(0);
 	}
 }
