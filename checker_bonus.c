@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:33:45 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/25 13:26:34 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/25 13:42:01 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	do_instructions_follow(char *instruct, t_m_list *master_stack)
 {
 	if (ft_memcmp("rr", instruct, 2) == 0)
 	{
-		if(instruct[2] == 'a')
+		if (instruct[2] == 'a')
 			reverse_rotate(master_stack, 'a');
 		else if (instruct[2] == 'b')
 			reverse_rotate(master_stack, 'b');
@@ -54,21 +54,21 @@ void	do_instructions(char *instruct, t_m_list *master_stack)
 		push_b(&(master_stack->bg_sa), &(master_stack->bg_sb));
 	else if (ft_memcmp("r", instruct, 1) == 0 && instruct[1] != 'r')
 	{
-		if(instruct[1] == 'a')
+		if (instruct[1] == 'a')
 			rotate(master_stack, 'a');
 		else if (instruct[1] == 'b')
 			rotate(master_stack, 'b');
 	}
 	else if (ft_memcmp("s", instruct, 1) == 0)
 	{
-		if(instruct[1] == 'a')
+		if (instruct[1] == 'a')
 			swap(master_stack, 'a');
 		else if (instruct[1] == 'b')
 			swap(master_stack, 'b');
 		else if (instruct[1] == 's')
 			double_action(master_stack, &swap, 's');
 	}
-	else 
+	else
 	{
 		if (do_instructions_follow(instruct, master_stack) == 0)
 			write(1, "Error\n", 6);
@@ -88,7 +88,7 @@ void	sort(t_m_list *master_stack)
 	}
 }
 
-int	main(int argc, char ** argv)
+int	main(int argc, char **argv)
 {
 	t_m_list	master_stack;
 	int			i;
