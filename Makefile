@@ -6,21 +6,21 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/24 18:05:01 by genouf           ###   ########.fr        #
+#    Updated: 2022/05/25 13:38:05 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c arg_check.c instructions.c instructions_bis.c add_index.c sort_this.c find_bigger_sorted.c sort_this_big.c sort_this_big_do.c sort_this_big_do_bis.c calcul_instruct.c calcul_i_a.c
 OBJS = ${SRCS:.c=.o}
-BBONUS = checker_bonus.c get_next_line_bonus.c get_next_line_utils_bonus.c
-OBJS_BONUS = ${BBONUS:.c=.o}
+BONUS = checker_bonus.c get_next_line_bonus.c get_next_line_utils_bonus.c instructions.c instructions_bis.c arg_check.c sort_this.c
+OBJS_BONUS = ${BONUS:.c=.o}
 
 NAME = push_swap
 
 RM = rm -f
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 MAKE = make -C libft
 LIBA = libft/libft.a 
@@ -34,8 +34,8 @@ ${LIBA}:
 ${NAME}: ${OBJS} ${LIBA}
 	${CC} ${CFLAGS} -o $@  ${OBJS} ${LIB}
 
-bonus:	${OBJS_BONUS} ${OBJS} ${LIBA}
-		${CC} ${CFLAGS} -o checker ${OBJS} ${OBJS_BONUS} ${LIB}
+bonus:	${OBJS_BONUS} ${LIBA}
+		${CC} ${CFLAGS} -o checker ${OBJS_BONUS} ${LIB}
 	
 %.o:	%.c
 		${CC} ${CFLAGS} -c $^
@@ -45,7 +45,7 @@ clean:
 		${MAKE} clean
 
 fclean:	clean
-		${RM} ${NAME}
+		${RM} ${NAME} checker
 		${MAKE} fclean
 
 re:	fclean all

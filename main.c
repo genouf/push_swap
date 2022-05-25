@@ -6,27 +6,11 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 17:00:51 by genouf           ###   ########.fr       */
+/*   Updated: 2022/05/25 13:20:28 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack)
-{
-	master_stack->bg_sa = NULL;
-	master_stack->bg_sb = NULL;
-	if (argc == 1)
-		exit(EXIT_FAILURE);
-	else if (argc == 2)
-	{
-		*i = 0;
-		argv = ft_split(argv[1], ' ');
-	}
-	else
-		*i = 1;
-	return (argv);
-}
 
 void	redirect(t_m_list *master_stack)
 {
@@ -38,7 +22,9 @@ void	redirect(t_m_list *master_stack)
 		if (!list_sorted(master_stack->bg_sa))
 			swap(master_stack, 'a');
 	}
-	else if (i > 2)
+	else if (i == 3)
+		sort_small(master_stack);
+	else if (i > 3)
 		sort_big(master_stack);
 }
 
