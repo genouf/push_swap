@@ -6,7 +6,7 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/05/25 23:32:04 by genouf           ###   ########.fr        #
+#    Updated: 2022/06/07 14:26:41 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ fclean:	clean
 		${RM} ${NAME} checker
 		${MAKE} fclean
 
-re:	fclean all
+re:	fclean 
+	make all
 
 .PHONY: clean fclean re all bonus
