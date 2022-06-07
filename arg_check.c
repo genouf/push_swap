@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:16:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/18 15:55:52 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/07 16:57:24 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,30 @@ int	checker_digit(char *str)
 	return (1);
 }
 
-int	checker_integer(char *str, long number)
+int	checker_integer(char *str, long number, char *tmp, char *tmp2)
 {
-	if (str[0] == '+' || str[0] == '-')
+	if (str[0] == '-')
 	{
-		if (ft_strlen(str) > 11)
+		if (ft_strncmp(str, tmp, 1) != 0)
+		{
+			free(tmp);
 			return (0);
+		}
+		str++;
+		tmp2 = tmp;
+		tmp = ft_strdup(tmp + 1);
+		free(tmp2);
 	}
-	else
+	else if (str[0] == '+')
+		str++;
+	while (*str == '0')
+		str++;
+	if (ft_strncmp(str, tmp, 25) != 0)
 	{
-		if (ft_strlen(str) > 10)
-			return (0);
+		free(tmp);
+		return (0);
 	}
+	free(tmp);
 	if (number > 2147483647 || number < -2147483648)
 		return (0);
 	return (1);
@@ -68,7 +80,7 @@ int	checker_entry(char *str, t_list **begin_list, int *content)
 	if (!checker_digit(str))
 		return (0);
 	number = ft_atoi(str);
-	if (!checker_integer(str, number))
+	if (!checker_integer(str, number, ft_itoa((int)number), NULL))
 		return (0);
 	if (!checker_list((int)number, begin_list))
 		return (0);
