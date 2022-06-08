@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:16:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 09:49:31 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:39:36 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,19 +90,27 @@ int	checker_entry(char *str, t_list **begin_list, int *content)
 
 int	checker_argv(int argc, char **argv, t_list **begin_list, int i)
 {
-	int		content;
-	int		test;
+	t_check_a	check;
 
-	test = i;
-	content = 0;
-	while ((test && i < argc) || (test == 0 && argv[i]))
+	check.content = 0;
+	while (i < argc)
 	{
-		if (!checker_entry(argv[i], begin_list, &content))
-		{
-			ft_lstclear(begin_list);
+		if (argv[i][0] == ' ' && argv[i][1] == '\0')
 			return (0);
+		check.tmp = ft_split(argv[i], ' ');
+		check.j = 0;
+		while (check.tmp[check.j])
+		{
+			if (!checker_entry(check.tmp[check.j], begin_list, &check.content))
+			{
+				ft_lstclear(begin_list);
+				clean_argv(check.tmp, check.j);
+				return (0);
+			}
+			ft_lstadd_back(begin_list, ft_lstnew(check.content));
+			check.j++;
 		}
-		ft_lstadd_back(begin_list, ft_lstnew(content));
+		clean_argv(check.tmp, check.j - 1);
 		i++;
 	}
 	return (1);

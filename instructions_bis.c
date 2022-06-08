@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 02:58:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/25 12:26:07 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:42:00 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,20 @@ void	push_b(t_list **begin_list_a, t_list **begin_list_b)
 	write(1, "pb\n", 3);
 }
 
-char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack)
+void	begin_init(int argc, t_m_list *master_stack)
 {
 	master_stack->bg_sa = NULL;
 	master_stack->bg_sb = NULL;
 	if (argc == 1)
 		exit(EXIT_FAILURE);
-	else if (argc == 2)
+}
+
+void	clean_argv(char **tmp, int j)
+{
+	while (j > -1)
 	{
-		*i = 0;
-		argv = ft_split(argv[1], ' ');
+		free(tmp[j]);
+		j--;
 	}
-	else
-		*i = 1;
-	return (argv);
+	free(tmp);
 }

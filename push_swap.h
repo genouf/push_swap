@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 17:01:25 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:42:23 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ typedef struct s_count_inst
 	int	count_instruct_b;
 }					t_c_i;
 
+typedef struct s_check_a
+{
+	int		content;
+	int		j;
+	char	**tmp;
+}				t_check_a;
+
 /* PROTOTYPES */
 /*		ARG_CHECK		*/
 int		checker_argv(int argc, char **argv, t_list **begin_list, int i);
@@ -54,6 +61,8 @@ void	double_action(t_m_list *master_stack,
 /*		INSTRUCTIONS_BIS		*/
 void	push_a(t_list **begin_list_a, t_list **begin_list_b);
 void	push_b(t_list **begin_list_a, t_list **begin_list_b);
+void	begin_init(int argc, t_m_list *master_stack);
+void	clean_argv(char **tmp, int j);
 /*		ADD_INDEX		*/
 void	add_index(t_list **begin_list);
 /*		SORT_THIS		*/
@@ -82,6 +91,5 @@ void	process_sort_different(t_m_list *master_stack, t_c_i count_inst,
 			char stack);
 void	process_sort_same(t_m_list *master_stack, t_c_i count_inst);
 int		calcul_inst_a(t_m_list *master_stack, t_list *b_elem);
-char	**begin_init(char **argv, int *i, int argc, t_m_list *master_stack);
 
 #endif

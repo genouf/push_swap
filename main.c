@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:30:34 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/25 13:20:28 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:25:40 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,12 @@ void	redirect(t_m_list *master_stack)
 int	main(int argc, char **argv)
 {
 	t_m_list	master_stack;
-	int			i;
 
-	argv = begin_init(argv, &i, argc, &master_stack);
-	if (!checker_argv(argc, argv, &(master_stack.bg_sa), i))
+	begin_init(argc, &master_stack);
+	if (!checker_argv(argc, argv, &(master_stack.bg_sa), 1))
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
-	}
-	if (i == 0)
-	{
-		while (argv[i])
-		{
-			free(argv[i]);
-			i++;
-		}
-		free(argv);
 	}
 	add_index(&master_stack.bg_sa);
 	redirect(&master_stack);

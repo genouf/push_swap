@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:33:45 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/25 16:46:26 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:33:23 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,23 +92,15 @@ void	sort(t_m_list *master_stack)
 int	main(int argc, char **argv)
 {
 	t_m_list	master_stack;
-	int			i;
 
-	argv = begin_init(argv, &i, argc, &master_stack);
-	if (!checker_argv(argc, argv, &(master_stack.bg_sa), i))
+	begin_init(argc, &master_stack);
+	if (!checker_argv(argc, argv, &(master_stack.bg_sa), 1))
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	if (i == 0)
-	{
-		while (argv[i])
-		{
-			free(argv[i]);
-			i++;
-		}
-		free(argv);
-	}
+	if (master_stack.bg_sa == NULL)
+		exit(EXIT_FAILURE);
 	sort(&master_stack);
 	check_end(&master_stack);
 	return (0);
