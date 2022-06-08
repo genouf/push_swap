@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:33:45 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 11:53:31 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 16:28:32 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	do_instructions_follow(char *instruct, t_m_list *master_stack)
 		else if (instruct[2] == 'b')
 			reverse_rotate_c(master_stack, 'b');
 		else if (instruct[2] == '\n')
-			double_action_c(master_stack, &rotate, 'r');
+			double_action_c(master_stack, &rotate);
 		else if (instruct[2] == 'r')
-			double_action_c(master_stack, &reverse_rotate, 'l');
+			double_action_c(master_stack, &reverse_rotate);
 		return (1);
 	}
 	return (0);
@@ -66,7 +66,7 @@ void	do_instructions(char *instruct, t_m_list *master_stack)
 		else if (instruct[1] == 'b')
 			swap_c(master_stack, 'b');
 		else if (instruct[1] == 's')
-			double_action_c(master_stack, &swap, 's');
+			double_action_c(master_stack, &swap);
 	}
 	else
 	{
