@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:44:39 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 17:41:07 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:55:12 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>
+# include "push_swap.h"
 
 char	*get_next_line(int fd);
 size_t	ft_strlen_gnl(char *s);
@@ -27,5 +28,12 @@ void	ft_splitbuff_gnl(char **buff, char **result, int id_line);
 char	*ft_subuff_gnl(char *buff, int id_line);
 void	*ft_calloc_gnl(size_t count, size_t size);
 size_t	ft_strlcpy_gnl(char *dst, char *src, size_t dstsize);
+void	swap_c(t_m_list *master_stack, char stack_name);
+void	rotate_c(t_m_list *master_stack, char stack_name);
+void	reverse_rotate_c(t_m_list *master_stack, char stack_name);
+void	double_action_c(t_m_list *master_stack, void (*f)(t_m_list *master_stack,
+	char stack_name));
+void	push_a_c(t_list **begin_list_a, t_list **begin_list_b);
+void	push_b_c(t_list **begin_list_a, t_list **begin_list_b);
 
 #endif

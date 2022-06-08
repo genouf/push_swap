@@ -6,13 +6,13 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/06/07 14:26:41 by genouf           ###   ########.fr        #
+#    Updated: 2022/06/08 11:54:35 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c arg_check.c instructions.c instructions_bis.c add_index.c sort_this.c find_bigger_sorted.c sort_this_big.c sort_this_big_do.c sort_this_big_do_bis.c calcul_instruct.c calcul_i_a.c
 OBJS = ${SRCS:.c=.o}
-BONUS = checker_bonus.c get_next_line_bonus.c get_next_line_utils_bonus.c instructions.c instructions_bis.c arg_check.c sort_this.c
+BONUS = checker_bonus.c get_next_line_bonus.c get_next_line_utils_bonus.c instructions.c instructions_bis.c arg_check.c sort_this.c instructions_bonus.c instructions_bis_bonus.c
 OBJS_BONUS = ${BONUS:.c=.o}
 
 NAME = push_swap
