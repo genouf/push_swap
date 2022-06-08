@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:16:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/07 16:57:24 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 09:49:31 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	checker_integer(char *str, long number, char *tmp, char *tmp2)
 	}
 	else if (str[0] == '+')
 		str++;
-	while (*str == '0')
+	while (*str == '0' && str[1] != '\0')
 		str++;
 	if (ft_strncmp(str, tmp, 25) != 0)
 	{
