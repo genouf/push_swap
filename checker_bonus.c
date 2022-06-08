@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:33:45 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 16:28:32 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/08 16:36:09 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,6 @@ void	do_instructions(char *instruct, t_m_list *master_stack)
 			swap_c(master_stack, 'b');
 		else if (instruct[1] == 's')
 			double_action_c(master_stack, &swap);
-	}
-	else
-	{
-		if (do_instructions_follow(instruct, master_stack) == 0)
-			write(1, "Error\n", 6);
 	}
 }
 
