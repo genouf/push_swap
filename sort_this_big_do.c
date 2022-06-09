@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:57 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 15:26:17 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/09 16:26:27 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	sort_big(t_m_list *master_stack)
 	init_sort_big(master_stack);
 	while (master_stack->bg_sb)
 	{
+		count_inst.count_instruct_a = 0;
+		count_inst.count_instruct_b = 0;
 		count_inst.initialized = 0;
 		tmp = master_stack->bg_sb;
 		while (tmp)

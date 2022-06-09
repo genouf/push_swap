@@ -6,7 +6,7 @@
 #    By: genouf <genouf@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 11:52:42 by genouf            #+#    #+#              #
-#    Updated: 2022/06/08 11:54:35 by genouf           ###   ########.fr        #
+#    Updated: 2022/06/09 13:08:43 by genouf           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ ${LIBA}:
 	${MAKE}
 
 ${NAME}: ${OBJS} ${LIBA}
-	${CC} -fsanitize=address ${CFLAGS} -o $@  ${OBJS} ${LIB}
+	${CC} ${CFLAGS} -o $@  ${OBJS} ${LIB}
 
 bonus : checker
 

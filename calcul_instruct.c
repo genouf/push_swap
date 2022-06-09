@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 17:12:07 by genouf            #+#    #+#             */
-/*   Updated: 2022/05/24 11:27:37 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/09 16:23:56 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ t_c_i	find_next_index(t_list *b_element, t_m_list *master_stack,
 	tmp = master_stack->bg_sa;
 	count = calcul_inst_a(master_stack, b_element);
 	set_index(&count_inst, count, size_a, 'a');
+	count_inst.initialized = 0;
+	count_inst.total_intruct = 0;
 	return (count_inst);
 }
