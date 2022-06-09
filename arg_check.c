@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:16:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 11:39:36 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/09 17:51:44 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	checker_argv(int argc, char **argv, t_list **begin_list, int i)
 	check.content = 0;
 	while (i < argc)
 	{
-		if (argv[i][0] == ' ' && argv[i][1] == '\0')
+		if (argv[i][0] == '\0' || (argv[i][0] == ' ' && argv[i][1] == '\0'))
 			return (0);
 		check.tmp = ft_split(argv[i], ' ');
 		check.j = 0;
