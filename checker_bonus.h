@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:44:39 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 11:58:07 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:17:28 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	double_action_c(t_m_list *master_stack, void (*f)
 			(t_m_list *master_stack, char stack_name));
 void	push_a_c(t_list **begin_list_a, t_list **begin_list_b);
 void	push_b_c(t_list **begin_list_a, t_list **begin_list_b);
+void	print_error(char *instruct, t_m_list *master_stack);
 
 #endif

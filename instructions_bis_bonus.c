@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 02:58:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 11:57:12 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:18:50 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,13 @@ void	push_b_c(t_list **begin_list_a, t_list **begin_list_b)
 	*begin_list_b = *begin_list_a;
 	(*begin_list_b)->next = tmp2;
 	*begin_list_a = tmp;
+}
+
+void	print_error(char *instruct, t_m_list *master_stack)
+{
+	ft_printf("Error\n");
+	free(instruct);
+	ft_lstclear(&master_stack->bg_sa);
+	ft_lstclear(&master_stack->bg_sb);
+	exit(EXIT_FAILURE);
 }
