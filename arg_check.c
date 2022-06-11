@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:16:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/09 17:51:44 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/11 16:52:22 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,11 @@ int	checker_entry(char *str, t_list **begin_list, int *content)
 {
 	long	number;
 
+	if (check_m_zero(str))
+	{
+		*content = ft_atoi(str);
+		return (1);
+	}
 	if (!checker_digit(str))
 		return (0);
 	number = ft_atoi(str);

@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 02:58:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 11:42:00 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/11 16:28:48 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,24 @@ void	clean_argv(char **tmp, int j)
 		j--;
 	}
 	free(tmp);
+}
+
+int	check_m_zero(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '-')
+	{
+		i++;
+		while (str[i])
+		{
+			if (str[i] != '0')
+				return (0);
+			i++;
+		}
+	}
+	else
+		return (0);
+	return (1);
 }

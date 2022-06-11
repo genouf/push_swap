@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:25:01 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/08 11:42:23 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/11 16:13:51 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	push_a(t_list **begin_list_a, t_list **begin_list_b);
 void	push_b(t_list **begin_list_a, t_list **begin_list_b);
 void	begin_init(int argc, t_m_list *master_stack);
 void	clean_argv(char **tmp, int j);
+int		check_m_zero(char *str);
 /*		ADD_INDEX		*/
 void	add_index(t_list **begin_list);
 /*		SORT_THIS		*/
