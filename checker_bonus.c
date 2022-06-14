@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:33:45 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/14 17:32:19 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/14 18:34:15 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	check_end(t_m_list *master_stack)
 
 void	do_instructions_follow(char *instruct, t_m_list *master_stack)
 {
-	if (ft_memcmp("r", instruct, 1) == 0 && instruct[1] != 'r')
+	if (instruct[0] == 'r' && instruct[1] != 'r' && instruct[2] == '\n')
 	{
 		if (instruct[1] == 'a')
 			rotate_c(master_stack, 'a');
@@ -40,14 +40,14 @@ void	do_instructions_follow(char *instruct, t_m_list *master_stack)
 		else
 			print_error(instruct, master_stack);
 	}
-	else if (ft_memcmp("rr", instruct, 2) == 0)
+	else if (ft_strncmp("rr\n", instruct, 3) == 0)
+		double_action_c(master_stack, &rotate);
+	else if (ft_strncmp("rr", instruct, 2) == 0 && instruct[3] == '\n')
 	{
 		if (instruct[2] == 'a')
 			reverse_rotate_c(master_stack, 'a');
 		else if (instruct[2] == 'b')
 			reverse_rotate_c(master_stack, 'b');
-		else if (instruct[2] == '\n')
-			double_action_c(master_stack, &rotate);
 		else if (instruct[2] == 'r')
 			double_action_c(master_stack, &reverse_rotate);
 		else
@@ -59,11 +59,11 @@ void	do_instructions_follow(char *instruct, t_m_list *master_stack)
 
 void	do_instructions(char *instruct, t_m_list *master_stack)
 {
-	if (ft_memcmp("pa", instruct, 2) == 0)
+	if (ft_strncmp("pa\n", instruct, 3) == 0)
 		push_a_c(&(master_stack->bg_sa), &(master_stack->bg_sb));
-	else if (ft_memcmp("pb", instruct, 2) == 0)
+	else if (ft_strncmp("pb\n", instruct, 3) == 0)
 		push_b_c(&(master_stack->bg_sa), &(master_stack->bg_sb));
-	else if (ft_memcmp("s", instruct, 1) == 0)
+	else if (instruct[0] == 's' && instruct[2] == '\n')
 	{
 		if (instruct[1] == 'a')
 			swap_c(master_stack, 'a');

@@ -6,7 +6,7 @@
 /*   By: genouf <genouf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 02:58:12 by genouf            #+#    #+#             */
-/*   Updated: 2022/06/11 18:57:44 by genouf           ###   ########.fr       */
+/*   Updated: 2022/06/14 17:36:00 by genouf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	begin_init(int argc, t_m_list *master_stack)
 	master_stack->bg_sa = NULL;
 	master_stack->bg_sb = NULL;
 	if (argc == 1)
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 }
 
 void	clean_argv(char **tmp, int j)
